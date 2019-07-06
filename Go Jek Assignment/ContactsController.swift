@@ -65,16 +65,14 @@ class ContactsController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCell
         let contactKey = contactsSection[indexPath.section]
         if let contact = contactsDict[contactKey.uppercased()]{
-            cell.textLabel?.text = contact[indexPath.row].firstName
+            cell.contactName?.text = contact[indexPath.row].firstName
         }
         return cell
     }
     
     fileprivate func setupTableView() {
-        tableView.register(ContactCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.separatorColor = .mainTextBlue
-        tableView.backgroundColor = UIColor.rgb(r: 12, g: 47, b: 57)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         tableView.tableFooterView = UIView()
@@ -87,8 +85,11 @@ class ContactsController: UITableViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.rgb(r: 50, g: 199, b: 242)
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
     }
     
+    @IBAction func addButtonPressed(_ sender: Any) {
+    }
 }
 
 class CustomNavigationController: UINavigationController {

@@ -19,20 +19,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7De-ey-wbF">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7De-ey-wbF">
                         <rect key="frame" x="0.0" y="0.0" width="51" height="44"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="51" id="ZK0-CJ-3r6"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2t-s9-uNv">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2t-s9-uNv">
                         <rect key="frame" x="59" y="11" width="94" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="94" id="r54-oj-hLl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="7De-ey-wbF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7Mw-Zb-ANd"/>
+                    <constraint firstItem="7De-ey-wbF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PEK-R3-f4r"/>
+                    <constraint firstAttribute="bottom" secondItem="7De-ey-wbF" secondAttribute="bottom" constant="-0.5" id="VjW-JC-Z1r"/>
+                    <constraint firstAttribute="bottom" secondItem="v2t-s9-uNv" secondAttribute="bottom" constant="11.5" id="fcs-Ye-esB"/>
+                    <constraint firstItem="v2t-s9-uNv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="hqh-J1-FJN"/>
+                    <constraint firstItem="v2t-s9-uNv" firstAttribute="leading" secondItem="7De-ey-wbF" secondAttribute="trailing" constant="8" id="pKF-lM-qfw"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contactImage" destination="7De-ey-wbF" id="Hmo-48-tV3"/>
+                <outlet property="contactName" destination="v2t-s9-uNv" id="kW5-MT-fbD"/>
+            </connections>
             <point key="canvasLocation" x="98.550724637681171" y="34.821428571428569"/>
         </tableViewCell>
     </objects>

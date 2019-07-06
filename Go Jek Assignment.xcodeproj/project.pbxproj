@@ -18,7 +18,7 @@
 		D61B388C22CF212A002531E8 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B388B22CF212A002531E8 /* ContactsViewModel.swift */; };
 		D61B389122CF28CA002531E8 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B389022CF28CA002531E8 /* ContactCell.swift */; };
 		D61B389322D04BA5002531E8 /* ContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B389222D04BA5002531E8 /* ContactsController.swift */; };
-		D61B389722D04C66002531E8 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61B389522D04C66002531E8 /* TableViewCell.xib */; };
+		D61B389722D04C66002531E8 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61B389522D04C66002531E8 /* ContactCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		D61B388B22CF212A002531E8 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		D61B389022CF28CA002531E8 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		D61B389222D04BA5002531E8 /* ContactsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsController.swift; sourceTree = "<group>"; };
-		D61B389522D04C66002531E8 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		D61B389522D04C66002531E8 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		DABE63D6C4E4AB33995E9BE2 /* Pods-Go Jek Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go Jek Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Go Jek Assignment/Pods-Go Jek Assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,10 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				D61B386F22CDB566002531E8 /* AppDelegate.swift */,
+				D61B388422CDD3F7002531E8 /* RequestManager */,
 				D61B388D22CF287F002531E8 /* View */,
 				D61B388A22CF2110002531E8 /* ViewModels */,
 				D61B388722CF0E25002531E8 /* Models */,
-				D61B388422CDD3F7002531E8 /* RequestManager */,
 				D61B387322CDB566002531E8 /* Main.storyboard */,
 				D61B389222D04BA5002531E8 /* ContactsController.swift */,
 				D61B387922CDB569002531E8 /* Assets.xcassets */,
@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				D61B389022CF28CA002531E8 /* ContactCell.swift */,
-				D61B389522D04C66002531E8 /* TableViewCell.xib */,
+				D61B389522D04C66002531E8 /* ContactCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D61B387D22CDB569002531E8 /* LaunchScreen.storyboard in Resources */,
-				D61B389722D04C66002531E8 /* TableViewCell.xib in Resources */,
+				D61B389722D04C66002531E8 /* ContactCell.xib in Resources */,
 				D61B387A22CDB569002531E8 /* Assets.xcassets in Resources */,
 				D61B387522CDB566002531E8 /* Main.storyboard in Resources */,
 			);
