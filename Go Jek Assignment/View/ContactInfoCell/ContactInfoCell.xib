@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactInfoCell" id="KGk-i7-Jjw" customClass="ContactInfoCell" customModule="Go_Jek_Assignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMa-4B-Qhs">
+                        <rect key="frame" x="20" y="11" width="66" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="b95-kg-Esd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tm-ws-3Gg">
+                        <rect key="frame" x="101" y="11" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="QKn-dh-4WQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASD-Ga-nWG">
+                        <rect key="frame" x="101" y="6" width="196" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="CNr-1V-6wJ"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="sMa-4B-Qhs" secondAttribute="bottom" constant="11.5" id="7Ig-kS-eDh"/>
+                    <constraint firstItem="ASD-Ga-nWG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="AJg-xZ-4GL"/>
+                    <constraint firstAttribute="bottom" secondItem="ASD-Ga-nWG" secondAttribute="bottom" constant="7.5" id="SBH-Oa-ZrV"/>
+                    <constraint firstAttribute="bottom" secondItem="0tm-ws-3Gg" secondAttribute="bottom" constant="11.5" id="SdH-TD-kQs"/>
+                    <constraint firstItem="0tm-ws-3Gg" firstAttribute="leading" secondItem="sMa-4B-Qhs" secondAttribute="trailing" constant="15" id="Ttd-bJ-PZj"/>
+                    <constraint firstItem="sMa-4B-Qhs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="beI-id-h1Y"/>
+                    <constraint firstItem="ASD-Ga-nWG" firstAttribute="leading" secondItem="sMa-4B-Qhs" secondAttribute="trailing" constant="15" id="d9b-Ar-A42"/>
+                    <constraint firstItem="sMa-4B-Qhs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fr5-Mt-BSh"/>
+                    <constraint firstItem="0tm-ws-3Gg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="lBp-bI-1eZ"/>
+                    <constraint firstAttribute="trailing" secondItem="ASD-Ga-nWG" secondAttribute="trailing" constant="23" id="vwu-YJ-KjZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="categoryName" destination="sMa-4B-Qhs" id="vQK-TK-8sD"/>
+                <outlet property="categoryValue" destination="0tm-ws-3Gg" id="nd4-qc-KIL"/>
+                <outlet property="categoryValueTextField" destination="ASD-Ga-nWG" id="6dJ-2k-bbC"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="59.598214285714285"/>
+        </tableViewCell>
+    </objects>
+</document>

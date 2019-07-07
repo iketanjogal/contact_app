@@ -19,6 +19,12 @@
 		D61B389122CF28CA002531E8 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B389022CF28CA002531E8 /* ContactCell.swift */; };
 		D61B389322D04BA5002531E8 /* ContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B389222D04BA5002531E8 /* ContactsController.swift */; };
 		D61B389722D04C66002531E8 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61B389522D04C66002531E8 /* ContactCell.xib */; };
+		D61B389922D059FE002531E8 /* ContactDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B389822D059FE002531E8 /* ContactDetailController.swift */; };
+		D61B38A122D06E5A002531E8 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B389F22D06E5A002531E8 /* ContactInfoCell.swift */; };
+		D61B38A222D06E5A002531E8 /* ContactInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61B38A022D06E5A002531E8 /* ContactInfoCell.xib */; };
+		D61B38A422D083EA002531E8 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A322D083EA002531E8 /* ContactDetail.swift */; };
+		D61B38A722D0E531002531E8 /* AddContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A622D0E531002531E8 /* AddContactController.swift */; };
+		D61B38A922D1BB5F002531E8 /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A822D1BB5F002531E8 /* AddContact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +43,12 @@
 		D61B389022CF28CA002531E8 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		D61B389222D04BA5002531E8 /* ContactsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsController.swift; sourceTree = "<group>"; };
 		D61B389522D04C66002531E8 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		D61B389822D059FE002531E8 /* ContactDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailController.swift; sourceTree = "<group>"; };
+		D61B389F22D06E5A002531E8 /* ContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
+		D61B38A022D06E5A002531E8 /* ContactInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactInfoCell.xib; sourceTree = "<group>"; };
+		D61B38A322D083EA002531E8 /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
+		D61B38A622D0E531002531E8 /* AddContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactController.swift; sourceTree = "<group>"; };
+		D61B38A822D1BB5F002531E8 /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
 		DABE63D6C4E4AB33995E9BE2 /* Pods-Go Jek Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go Jek Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Go Jek Assignment/Pods-Go Jek Assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,12 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				D61B386F22CDB566002531E8 /* AppDelegate.swift */,
+				D61B388722CF0E25002531E8 /* Models */,
+				D61B38A522D0E4DB002531E8 /* Controllers */,
 				D61B388422CDD3F7002531E8 /* RequestManager */,
 				D61B388D22CF287F002531E8 /* View */,
 				D61B388A22CF2110002531E8 /* ViewModels */,
-				D61B388722CF0E25002531E8 /* Models */,
-				D61B387322CDB566002531E8 /* Main.storyboard */,
-				D61B389222D04BA5002531E8 /* ContactsController.swift */,
 				D61B387922CDB569002531E8 /* Assets.xcassets */,
 				D61B387B22CDB569002531E8 /* LaunchScreen.storyboard */,
 				D61B387E22CDB569002531E8 /* Info.plist */,
@@ -117,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				D61B388822CF0E3C002531E8 /* Contacts.swift */,
+				D61B38A322D083EA002531E8 /* ContactDetail.swift */,
+				D61B38A822D1BB5F002531E8 /* AddContact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,10 +145,39 @@
 		D61B388D22CF287F002531E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D61B387322CDB566002531E8 /* Main.storyboard */,
+				D61B389D22D06E05002531E8 /* ContactCell */,
+				D61B389E22D06E15002531E8 /* ContactInfoCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D61B389D22D06E05002531E8 /* ContactCell */ = {
+			isa = PBXGroup;
+			children = (
 				D61B389022CF28CA002531E8 /* ContactCell.swift */,
 				D61B389522D04C66002531E8 /* ContactCell.xib */,
 			);
-			path = View;
+			path = ContactCell;
+			sourceTree = "<group>";
+		};
+		D61B389E22D06E15002531E8 /* ContactInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				D61B389F22D06E5A002531E8 /* ContactInfoCell.swift */,
+				D61B38A022D06E5A002531E8 /* ContactInfoCell.xib */,
+			);
+			path = ContactInfoCell;
+			sourceTree = "<group>";
+		};
+		D61B38A522D0E4DB002531E8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D61B389822D059FE002531E8 /* ContactDetailController.swift */,
+				D61B389222D04BA5002531E8 /* ContactsController.swift */,
+				D61B38A622D0E531002531E8 /* AddContactController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D61B387D22CDB569002531E8 /* LaunchScreen.storyboard in Resources */,
+				D61B38A222D06E5A002531E8 /* ContactInfoCell.xib in Resources */,
 				D61B389722D04C66002531E8 /* ContactCell.xib in Resources */,
 				D61B387A22CDB569002531E8 /* Assets.xcassets in Resources */,
 				D61B387522CDB566002531E8 /* Main.storyboard in Resources */,
@@ -251,13 +294,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61B38A922D1BB5F002531E8 /* AddContact.swift in Sources */,
 				D61B389322D04BA5002531E8 /* ContactsController.swift in Sources */,
 				D61B388C22CF212A002531E8 /* ContactsViewModel.swift in Sources */,
 				D61B387822CDB566002531E8 /* Go_Jek_Assignment.xcdatamodeld in Sources */,
+				D61B389922D059FE002531E8 /* ContactDetailController.swift in Sources */,
+				D61B38A122D06E5A002531E8 /* ContactInfoCell.swift in Sources */,
 				D61B387022CDB566002531E8 /* AppDelegate.swift in Sources */,
 				D61B388622CDD411002531E8 /* RequestManager.swift in Sources */,
+				D61B38A722D0E531002531E8 /* AddContactController.swift in Sources */,
 				D61B389122CF28CA002531E8 /* ContactCell.swift in Sources */,
 				D61B388922CF0E3C002531E8 /* Contacts.swift in Sources */,
+				D61B38A422D083EA002531E8 /* ContactDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AH2BSZKXW;
 				INFOPLIST_FILE = "Go Jek Assignment/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AH2BSZKXW;
 				INFOPLIST_FILE = "Go Jek Assignment/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
