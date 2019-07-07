@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import PKHUD
 
-class ContactsController: UITableViewController {
+class ContactsController: UITableViewController,AddContactControllerDelegate {
     var contactsSection = [String]()
     var contactsDict = [String:[Contacts]]()
    
@@ -24,10 +25,12 @@ class ContactsController: UITableViewController {
     //MARK: Network Request
     
     func fetchContacts (){
+        PKHUD.sharedHUD.show()
         RequestManager.shared.getContacts { (res) in
             switch res {
             case .success(let contacts):
                 // creating dictionary for indexing
+                PKHUD.sharedHUD.hide()
                 for contact in contacts{
                     let key = "\(contact.firstName[contact.firstName.startIndex])"
                     let upper = key.uppercased()
@@ -92,6 +95,12 @@ class ContactsController: UITableViewController {
         }
     }
     
+    //MARK: AddViewControllerDelegate
+    
+    func addContactControllerDelegateContactUpdated() {
+        fetchContacts()
+    }
+    
     //MARK: Private Methods
     
     fileprivate func setupTableView() {
@@ -106,6 +115,7 @@ class ContactsController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "AddContactController") as! AddContactController
+        viewController.delegate = self
         self.present(viewController, animated:true, completion: nil)
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 let BASE_URL: String = "http://gojek-contacts-app.herokuapp.com"
 enum ScreenType{
@@ -64,27 +63,38 @@ class RequestManager {
     func addContactWithDetail(contact:AddContact,completion: @escaping (Result<String>) -> ()){
         let urlstring : String = BASE_URL + "/contacts.json"
         let params : [String : Any]  = ["first_name":contact.firstName,"last_name":contact.lastName,"email":contact.email,"phone_number":contact.phone,"favorite":contact.isFavorite]
-                
-        Alamofire.request(urlstring, method: .post, parameters:["mode":"row","row":params], headers: headers).responseJSON { (response) in
-            if let err = response.result.error {
-                print(err)
-                completion(.failure(err))
-                return
-            }
-                completion(.success("suceess"))
-        }
-    }
-    func editContactWithDetail(contact:AddContact,contactId:Int, completion: @escaping (Result<String>) -> ()){
-        let urlstring : String = BASE_URL + "/contacts/\(contactId).json"
-        let params : [String : Any]  = ["first_name":contact.firstName,"last_name":contact.lastName,"email":contact.email,"phone_number":contact.phone,"favorite":contact.isFavorite]
-        
-        Alamofire.request(urlstring, method: .put, parameters:["mode":"row","row":params], headers: headers).responseJSON { (response) in
+
+        Alamofire.request(urlstring, method: .post, parameters:params,encoding:
+            JSONEncoding.default, headers: headers).responseJSON { (response) in            
             if let err = response.result.error {
                 print(err)
                 completion(.failure(err))
                 return
             }
             completion(.success("suceess"))
+        }
+    }
+    func editContactWithDetail(contact:AddContact,contactId:Int, completion: @escaping (Result<ContactDetail>) -> ()){
+        let urlstring : String = BASE_URL + "/contacts/\(contactId).json"
+        let params : [String : Any]  = ["first_name":contact.firstName,"last_name":contact.lastName,"email":contact.email,"phone_number":contact.phone,"favorite":contact.isFavorite]
+        print(urlstring)
+        print(params)
+        Alamofire.request(urlstring, method: .put, parameters:params, encoding:
+            JSONEncoding.default, headers: headers).responseJSON { (response) in
+            if let err = response.result.error {
+                print(err)
+                completion(.failure(err))
+                return
+            }
+                do{
+                    guard let data = response.data else{
+                        return
+                    }
+                    let contactDetail = try JSONDecoder().decode(ContactDetail.self, from: data)
+                    completion(.success(contactDetail))
+                }catch{
+                    completion(.failure(error))
+                }
         }
     }
 }

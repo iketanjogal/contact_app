@@ -3,8 +3,7 @@ platform :ios, '9.0'
 
 target 'Go Jek Assignment' do
     
-    pod 'SwiftyJSON'
     pod 'Alamofire'
-    pod 'SVProgressHUD'
-
+    pod 'PKHUD', '~> 5.0'
+    
 end

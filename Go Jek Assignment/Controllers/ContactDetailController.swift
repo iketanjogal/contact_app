@@ -8,8 +8,9 @@
 
 import UIKit
 import MessageUI
+import PKHUD
 
-class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewDataSource,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate {
+class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewDataSource,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,AddContactControllerDelegate {
     
     let cellIdentifier = "ContactInfoCell"
    
@@ -30,7 +31,7 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
         
         setupTableView()
         fetchContactDetail()
-        updateUI()
+       // updateUI()
     }
     
     //MARK: UITableViewDelegates
@@ -52,17 +53,25 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
     //MARK: Network Request
     
     func fetchContactDetail(){
+        PKHUD.sharedHUD.show()
         RequestManager.shared.getContactDetail(profileUrl:contactViewModel.profileUrl) { (res) in
             switch res {
             case .success(let contact):
-            self.contactDetail = contact
-            self.contactInfoValue.append(self.contactDetail.phoneNumber)
-            self.contactInfoValue.append(self.contactDetail.email)
-            self.contactInfoTable.reloadData()
+                PKHUD.sharedHUD.hide()
+                self.contactDetail = contact
+                print(self.contactDetail!)
+                self.contactInfoValue.append(self.contactDetail.phoneNumber)
+                self.contactInfoValue.append(self.contactDetail.email)
+                self.contactInfoTable.reloadData()
+                self.updateUI()
             case .failure(let err):
                 print("Failed to fetch courses:", err)
             }
         }
+    }
+    //MARK: AddViewControllerDelegate
+    func addContactControllerDelegateContactUpdated() {
+        fetchContactDetail()
     }
     
     //MARK: IBActions
@@ -92,6 +101,7 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
         let viewController = storyboard.instantiateViewController(withIdentifier: "AddContactController") as! AddContactController
         viewController.screen = ScreenType.Edit
         viewController.contact = contactDetail
+        viewController.delegate = self
         self.present(viewController, animated:false, completion: nil)
     }
     
@@ -102,10 +112,10 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
         let edit : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(editButtonPressed))
         self.navigationItem.rightBarButtonItem = edit
         
-        contactName?.text = contactViewModel.name
-        contactImage?.imageFromServerURL(contactViewModel.imageUrl, placeHolder: nil)
+        contactName?.text = contactDetail.firstName + "" + contactDetail.lastName
+        contactImage?.imageFromServerURL(BASE_URL + contactDetail.imageUrl, placeHolder: nil)
         contactImage.setCornerRadius()
-        isMarked = contactViewModel.isFavorite
+        isMarked = contactDetail.isFavorite
         
         markFavorite(marked: isMarked)
     }

@@ -1,24 +1,20 @@
 PODS:
   - Alamofire (4.7.2)
-  - SVProgressHUD (2.2.5)
-  - SwiftyJSON (4.1.0)
+  - PKHUD (5.1.0)
 
 DEPENDENCIES:
   - Alamofire
-  - SVProgressHUD
-  - SwiftyJSON
+  - PKHUD (~> 5.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - SVProgressHUD
-    - SwiftyJSON
+    - PKHUD
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  PKHUD: 62ea46a1e88c4def1da784878d199bb54c841e3c
 
-PODFILE CHECKSUM: 9fdf8b3fcfd147764f4adb78f1017bab36d21989
+PODFILE CHECKSUM: 8cbb12014e2ffa068be40fe685b846ece159959d
 
 COCOAPODS: 1.5.0

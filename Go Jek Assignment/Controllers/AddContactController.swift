@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import PKHUD
+
+protocol AddContactControllerDelegate {
+    func addContactControllerDelegateContactUpdated()
+}
 
 class AddContactController: UIViewController,UITableViewDelegate,UITableViewDataSource,ContactInfoCellDelegate {
     @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    var delegate : AddContactControllerDelegate?
+   
     let cellIdentifier = "ContactInfoCell"
     var screen : ScreenType = ScreenType.Add
     var contactInfoName = ["FirstName","LastName","Mobile","Email"]
@@ -54,37 +61,39 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
         return contactInfoName.count
     }
     func contactInfoCelltextFieldDidChange(textField: UITextField) {
+        
         switch textField.tag {
         case 0 :
             firstName = textField.text ?? ""
+            if let contact = contact{
+                doneButton.isEnabled = firstName != contact.firstName
+            }
         case 1 :
             lastName = textField.text ?? ""
+            if let contact = contact{
+                doneButton.isEnabled = lastName != contact.lastName
+            }
         case 2 :
-            if !(textField.text?.validatePhone())!{
-                textField.textColor = UIColor.red
-                isPhoneValid = false
-            }else{
-                textField.textColor = UIColor.black
-                isPhoneValid = true
-                phoneNumber = textField.text ?? ""
+            phoneNumber = textField.text ?? ""
+            if let contact = contact{
+                doneButton.isEnabled = phoneNumber != contact.phoneNumber && phoneNumber.validatePhone()
             }
         case 3 :
-            if !(textField.text?.validateEmail())!{
-                isEmailValid = false
-                textField.textColor = UIColor.red
-            }else{
-                isEmailValid = true
-                textField.textColor = UIColor.black
-                email = textField.text ?? ""
+            email = textField.text ?? ""
+            if let contact = contact{
+                doneButton.isEnabled = email != contact.email && email.validateEmail()
             }
         default:
             print("nothing")
         }
-        if isPhoneValid && isEmailValid{
-            doneButton.isEnabled = true
-        }else{
-            doneButton.isEnabled = false
+        if screen == ScreenType.Add{
+            if firstName.count > 0 && lastName.count > 0 && phoneNumber.validatePhone() && email.validateEmail(){
+                doneButton.isEnabled = true
+            }else{
+                doneButton.isEnabled = false
+            }
         }
+        
     }
     
     //MARK: KeyBoard Observer selectors
@@ -101,7 +110,6 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK: IBActions
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        if isPhoneValid && isEmailValid {
             if screen == ScreenType.Add{
                 let contactToAdd = AddContact(firstName: firstName, lastName: lastName, email: email, phone: phoneNumber, isFavorite: false)
                 addContactWithDetail(addContact: contactToAdd)
@@ -109,8 +117,6 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
                 let contactToAdd = AddContact(firstName: firstName, lastName: lastName, email: email, phone: phoneNumber, isFavorite: false)
                 editContactWithDetail(addContact: contactToAdd)
             }
-           
-        }
     }
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -119,17 +125,41 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK: Network Request
     
     func addContactWithDetail(addContact:AddContact) {
+        PKHUD.sharedHUD.show()
         RequestManager.shared.addContactWithDetail(contact: addContact, completion:{
             (res) in
-             self.dismiss(animated: true, completion: nil)
+            switch res {
+            case .success(_):
+                PKHUD.sharedHUD.contentView = PKHUDSuccessView()
+                PKHUD.sharedHUD.show()
+                PKHUD.sharedHUD.hide(afterDelay: 1.0) { success in
+                    self.delegate?.addContactControllerDelegateContactUpdated()
+                    self.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let err):
+                print("Failed to fetch courses:", err)
+            }
+            
             print(res)
         })
     }
     func editContactWithDetail(addContact:AddContact) {
+        PKHUD.sharedHUD.show()
         RequestManager.shared.editContactWithDetail(contact: addContact, contactId:contact.contactId, completion:{
             (res) in
-            self.dismiss(animated: true, completion: nil)
-            print(res)
+            switch res {
+            case .success(let contactDetailResponse):
+                print(contactDetailResponse)
+                PKHUD.sharedHUD.contentView = PKHUDSuccessView()
+                PKHUD.sharedHUD.show()
+                PKHUD.sharedHUD.hide(afterDelay: 1.0) { success in
+                    self.delegate?.addContactControllerDelegateContactUpdated()
+                    self.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let err):
+                print("Failed to fetch courses:", err)
+            }
+            
         })
     }
     
@@ -150,6 +180,7 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
     fileprivate func setupTableView() {
         contactInfoTable.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         contactInfoTable.rowHeight = UITableView.automaticDimension
+        contactInfoTable.tableFooterView = UIView()
         contactInfoTable.estimatedRowHeight = 50
     }
 }
