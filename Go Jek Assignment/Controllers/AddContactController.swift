@@ -19,7 +19,6 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
     var contact :ContactDetail!{
         didSet{
             contactInfoValue = [contact.firstName,contact.lastName,contact.phoneNumber,contact.email]
-            print(contact.imageUrl)
         }
     }
     var firstName: String = ""
@@ -35,13 +34,8 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        doneButton.isEnabled = false
-        if screen == ScreenType.Edit{
-             contactImage?.imageFromServerURL(BASE_URL + contact.imageUrl, placeHolder: UIImage(named: "missing"))
-        }
-        contactImage.layer.cornerRadius = contactImage.frame.size.width/2
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setUpUIForScreen()
+        setKeyBoardObserver()
     }
     
     //MARK: UITableviewDelegates
@@ -66,7 +60,7 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
         case 1 :
             lastName = textField.text ?? ""
         case 2 :
-            if !validatePhone(phoneNumber: textField.text ?? ""){
+            if !(textField.text?.validatePhone())!{
                 textField.textColor = UIColor.red
                 isPhoneValid = false
             }else{
@@ -75,7 +69,7 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
                 phoneNumber = textField.text ?? ""
             }
         case 3 :
-            if !validateEmail(email: textField.text ?? ""){
+            if !(textField.text?.validateEmail())!{
                 isEmailValid = false
                 textField.textColor = UIColor.red
             }else{
@@ -91,19 +85,6 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
         }else{
             doneButton.isEnabled = false
         }
-    }
-    func validatePhone(phoneNumber:String) -> Bool{
-        let phoneNumberRegex = "^[6-9]\\d{9}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
-        let isValidPhone = phoneTest.evaluate(with: phoneNumber)
-        return isValidPhone
-    }
-    
-    func validateEmail(email:String) -> Bool{
-        let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let result = emailTest.evaluate(with: email)
-        return result
     }
     
     //MARK: KeyBoard Observer selectors
@@ -152,13 +133,23 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
         })
     }
     
+    //MARK: Private Methods
     
+    func setUpUIForScreen(){
+        doneButton.isEnabled = false
+        if screen == ScreenType.Edit{
+            contactImage?.imageFromServerURL(BASE_URL + contact.imageUrl, placeHolder: UIImage(named: "missing"))
+        }
+        contactImage.layer.cornerRadius = contactImage.frame.size.width/2
+    }
+    func setKeyBoardObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     fileprivate func setupTableView() {
         contactInfoTable.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        contactInfoTable.separatorColor = .mainTextBlue
         contactInfoTable.rowHeight = UITableView.automaticDimension
         contactInfoTable.estimatedRowHeight = 50
-        contactInfoTable.tableFooterView = UIView()
     }
 }

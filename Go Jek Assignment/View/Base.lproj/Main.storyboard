@@ -47,7 +47,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9C-kD-gmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="-44"/>
+            <point key="canvasLocation" x="904" y="-147"/>
         </scene>
         <!--Contact Detail Controller-->
         <scene sceneID="a8k-Cr-r4E">
@@ -58,10 +58,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZD-Jz-bDh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="320"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="335"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UN2-7G-laE">
-                                        <rect key="frame" x="30" y="247.5" width="354" height="62.5"/>
+                                        <rect key="frame" x="30" y="262.5" width="354" height="62.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbj-ap-W7U">
                                                 <rect key="frame" x="0.0" y="0.0" width="73.5" height="62.5"/>
@@ -139,7 +139,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmg-V1-x6Y">
-                                        <rect key="frame" x="74" y="178" width="266" height="44.5"/>
+                                        <rect key="frame" x="74" y="178" width="266" height="59.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                                     <constraint firstItem="pmg-V1-x6Y" firstAttribute="leading" secondItem="dZD-Jz-bDh" secondAttribute="leading" constant="74" id="Rjg-Ph-DYX"/>
                                     <constraint firstAttribute="bottom" secondItem="UN2-7G-laE" secondAttribute="bottom" constant="10" id="Umd-Xi-uCi"/>
                                     <constraint firstAttribute="trailing" secondItem="UN2-7G-laE" secondAttribute="trailing" constant="30" id="Ypf-TR-J1w"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="dLB-5X-tFr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="335" id="dLB-5X-tFr"/>
                                     <constraint firstItem="UN2-7G-laE" firstAttribute="top" secondItem="pmg-V1-x6Y" secondAttribute="bottom" constant="25" id="jNO-bG-xBc"/>
                                     <constraint firstItem="Dbc-Ld-kx3" firstAttribute="centerX" secondItem="dZD-Jz-bDh" secondAttribute="centerX" id="p8g-zL-jfd"/>
                                     <constraint firstItem="pmg-V1-x6Y" firstAttribute="top" secondItem="Dbc-Ld-kx3" secondAttribute="bottom" constant="8" id="pz6-Ry-XOa"/>
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HL5-d3-bHV">
-                                <rect key="frame" x="0.0" y="416" width="414" height="297"/>
+                                <rect key="frame" x="0.0" y="431" width="414" height="297"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="297" id="RnJ-QL-3yt"/>
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ck1-9a-w9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="-15"/>
+            <point key="canvasLocation" x="1572" y="-147"/>
         </scene>
         <!--Add Contact Controller-->
         <scene sceneID="RcY-uZ-boV">
@@ -270,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66P-Yt-0dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2327.536231884058" y="-31.473214285714285"/>
+            <point key="canvasLocation" x="2243" y="-147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d4t-d6-AQc">
@@ -288,7 +288,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT2-HI-Z5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="19"/>
+            <point key="canvasLocation" x="277" y="-178"/>
         </scene>
     </scenes>
     <resources>

@@ -20,10 +20,14 @@ class ContactsController: UITableViewController {
         fetchContacts()
         setupTableView()
     }
+    
+    //MARK: Network Request
+    
     func fetchContacts (){
         RequestManager.shared.getContacts { (res) in
             switch res {
             case .success(let contacts):
+                // creating dictionary for indexing
                 for contact in contacts{
                     let key = "\(contact.firstName[contact.firstName.startIndex])"
                     let upper = key.uppercased()
@@ -44,7 +48,7 @@ class ContactsController: UITableViewController {
         }
     }
     
-    //MARK:
+    //MARK: UITableViewDelegates
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return contactsSection.count
@@ -88,19 +92,15 @@ class ContactsController: UITableViewController {
         }
     }
     
+    //MARK: Private Methods
+    
     fileprivate func setupTableView() {
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        tableView.separatorColor = .mainTextBlue
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 70
-        tableView.tableFooterView = UIView()
     }
     
     fileprivate func setupNavBar() {
         navigationItem.title = "Contacts"
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -110,16 +110,11 @@ class ContactsController: UITableViewController {
     }
 }
 
-class CustomNavigationController: UINavigationController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-}
 extension UIColor {
     static let mainTextBlue = UIColor.rgb(r: 7, g: 71, b: 89)
     static let highlightColor = UIColor.rgb(r: 50, g: 199, b: 242)
     static let buttonBackground = UIColor.rgb(r: 0, g: 150, b: 255)
-    
+
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }

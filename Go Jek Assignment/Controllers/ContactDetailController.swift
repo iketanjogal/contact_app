@@ -27,20 +27,13 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let edit : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(editButtonPressed))
-        self.navigationItem.rightBarButtonItem = edit
         
         setupTableView()
         fetchContactDetail()
         updateUI()
     }
-    @objc func editButtonPressed(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "AddContactController") as! AddContactController
-        viewController.screen = ScreenType.Edit
-        viewController.contact = contactDetail
-        self.present(viewController, animated:false, completion: nil)
-    }
+    
+    //MARK: UITableViewDelegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contactInfoCategory.count
@@ -55,6 +48,9 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
             }
         return cell
     }
+    
+    //MARK: Network Request
+    
     func fetchContactDetail(){
         RequestManager.shared.getContactDetail(profileUrl:contactViewModel.profileUrl) { (res) in
             switch res {
@@ -68,39 +64,58 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
             }
         }
     }
-    fileprivate func updateUI(){
-        contactName?.text = contactViewModel.name
-        contactImage?.imageFromServerURL(contactViewModel.imageUrl, placeHolder: nil)
-        contactImage.layer.cornerRadius = contactImage.frame.size.width/2
-        isMarked = contactViewModel.isFavorite
-        markFavorite(marked: isMarked)
-    }
-    fileprivate func setupTableView() {
-        contactInfoTable.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        contactInfoTable.separatorColor = .mainTextBlue
-        contactInfoTable.rowHeight = UITableView.automaticDimension
-        contactInfoTable.estimatedRowHeight = 50
-        contactInfoTable.tableFooterView = UIView()
-    }
+    
+    //MARK: IBActions
+    
     @IBAction func stackViewButtonPressed(_ sender: UIButton) {
         switch sender.tag {
-            case 1:
-                sendMessage()
-            case 2:
-                callNumber()
-            case 3:
-                sendEmail()
-            case 4:
-                if isMarked{
-                    isMarked = false
-                }else{
-                    isMarked = true
-                }
-                markFavorite(marked: isMarked)
+        case 1:
+            sendMessage()
+        case 2:
+            callNumber()
+        case 3:
+            sendEmail()
+        case 4:
+            if isMarked{
+                isMarked = false
+            }else{
+                isMarked = true
+            }
+            markFavorite(marked: isMarked)
         default:
             print("nothing")
         }
     }
+    
+    @objc func editButtonPressed(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AddContactController") as! AddContactController
+        viewController.screen = ScreenType.Edit
+        viewController.contact = contactDetail
+        self.present(viewController, animated:false, completion: nil)
+    }
+    
+    //MARK: Private Methods
+    
+    fileprivate func updateUI(){
+        
+        let edit : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(editButtonPressed))
+        self.navigationItem.rightBarButtonItem = edit
+        
+        contactName?.text = contactViewModel.name
+        contactImage?.imageFromServerURL(contactViewModel.imageUrl, placeHolder: nil)
+        contactImage.setCornerRadius()
+        isMarked = contactViewModel.isFavorite
+        
+        markFavorite(marked: isMarked)
+    }
+    fileprivate func setupTableView() {
+        contactInfoTable.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        contactInfoTable.rowHeight = UITableView.automaticDimension
+        contactInfoTable.estimatedRowHeight = 50
+        contactInfoTable.tableFooterView = UIView()
+    }
+    
     func sendMessage(){
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
@@ -110,39 +125,38 @@ class ContactDetailController: UIViewController,UITableViewDelegate,UITableViewD
             self.present(composeVC, animated: true, completion: nil)
         }
     }
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        switch (result.rawValue) {
-        case MessageComposeResult.cancelled.rawValue:
-            self.dismiss(animated: true, completion: nil)
-        case MessageComposeResult.failed.rawValue:
-            self.dismiss(animated: true, completion: nil)
-        case MessageComposeResult.sent.rawValue:
-            self.dismiss(animated: true, completion: nil)
-        default:
-            break;
-        }
-    }
-
+    
     func sendEmail(){
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
             mail.setToRecipients([contactDetail.email])
             present(mail, animated: true)
-        } 
+        }
     }
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
+    
     func callNumber(){
         guard let number = URL(string: "tel://" + contactDetail.phoneNumber) else { return }
         UIApplication.shared.open(number)
     }
+    
     func markFavorite(marked:Bool){
         if marked{
             favoriteButton.setImage(UIImage(named: "starFilled"), for: .normal)
         }else{
             favoriteButton.setImage(UIImage(named: "starEmpty"), for: .normal)
         }
+    }
+    
+    //MARK:MFMessageComposeViewControllerDelegate
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK:MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

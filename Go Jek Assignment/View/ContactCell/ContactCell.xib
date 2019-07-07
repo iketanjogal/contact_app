@@ -12,43 +12,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="ContactCell" customModule="Go_Jek_Assignment" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="KGk-i7-Jjw" customClass="ContactCell" customModule="Go_Jek_Assignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7De-ey-wbF">
-                        <rect key="frame" x="15" y="5" width="33" height="33.5"/>
+                        <rect key="frame" x="15" y="15" width="33" height="33.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="33" id="ZK0-CJ-3r6"/>
-                            <constraint firstAttribute="height" constant="33.5" id="l03-2T-wlo"/>
+                            <constraint firstAttribute="height" constant="33.5" id="kbE-si-miD"/>
+                            <constraint firstAttribute="width" constant="33" id="y34-py-KVr"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2t-s9-uNv">
-                        <rect key="frame" x="63" y="5" width="237" height="33.5"/>
+                        <rect key="frame" x="64" y="24" width="236" height="15.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="OHl-As-IIu">
-                        <rect key="frame" x="290" y="8" width="26" height="26"/>
+                        <rect key="frame" x="262" y="19" width="26" height="26"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="26" id="MlO-TV-qZl"/>
+                            <constraint firstAttribute="height" constant="26" id="pfM-2M-qSW"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7De-ey-wbF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="7Mw-Zb-ANd"/>
-                    <constraint firstAttribute="bottom" secondItem="7De-ey-wbF" secondAttribute="bottom" constant="5" id="9Qg-pF-55B"/>
-                    <constraint firstItem="7De-ey-wbF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="PEK-R3-f4r"/>
-                    <constraint firstAttribute="bottom" secondItem="v2t-s9-uNv" secondAttribute="bottom" constant="5" id="fcs-Ye-esB"/>
-                    <constraint firstItem="OHl-As-IIu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fvL-xT-YVn"/>
-                    <constraint firstItem="v2t-s9-uNv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="hqh-J1-FJN"/>
-                    <constraint firstAttribute="trailing" secondItem="OHl-As-IIu" secondAttribute="trailing" constant="4" id="oat-S1-4il"/>
-                    <constraint firstItem="v2t-s9-uNv" firstAttribute="leading" secondItem="7De-ey-wbF" secondAttribute="trailing" constant="15" id="pKF-lM-qfw"/>
-                    <constraint firstAttribute="bottom" secondItem="OHl-As-IIu" secondAttribute="bottom" constant="9.5" id="qor-D1-OSH"/>
+                    <constraint firstItem="OHl-As-IIu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3hZ-Of-pqN"/>
+                    <constraint firstItem="7De-ey-wbF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Pj8-gf-ig2"/>
+                    <constraint firstItem="v2t-s9-uNv" firstAttribute="leading" secondItem="7De-ey-wbF" secondAttribute="trailing" constant="16" id="XCF-8D-thH"/>
+                    <constraint firstItem="7De-ey-wbF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ygu-QV-3Vv"/>
+                    <constraint firstAttribute="bottom" secondItem="v2t-s9-uNv" secondAttribute="bottom" constant="24" id="fcs-Ye-esB"/>
+                    <constraint firstItem="v2t-s9-uNv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="hqh-J1-FJN"/>
+                    <constraint firstAttribute="trailing" secondItem="OHl-As-IIu" secondAttribute="trailing" constant="32" id="oat-S1-4il"/>
                     <constraint firstAttribute="trailing" secondItem="v2t-s9-uNv" secondAttribute="trailing" constant="20" id="suo-4J-4BJ"/>
                 </constraints>
             </tableViewCellContentView>

@@ -25,6 +25,8 @@
 		D61B38A422D083EA002531E8 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A322D083EA002531E8 /* ContactDetail.swift */; };
 		D61B38A722D0E531002531E8 /* AddContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A622D0E531002531E8 /* AddContactController.swift */; };
 		D61B38A922D1BB5F002531E8 /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A822D1BB5F002531E8 /* AddContact.swift */; };
+		D61B38AC22D227FE002531E8 /* UIimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38AB22D227FE002531E8 /* UIimageView.swift */; };
+		D61B38AE22D22894002531E8 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38AD22D22894002531E8 /* String+Validation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		D61B38A322D083EA002531E8 /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		D61B38A622D0E531002531E8 /* AddContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactController.swift; sourceTree = "<group>"; };
 		D61B38A822D1BB5F002531E8 /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
+		D61B38AB22D227FE002531E8 /* UIimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIimageView.swift; sourceTree = "<group>"; };
+		D61B38AD22D22894002531E8 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		DABE63D6C4E4AB33995E9BE2 /* Pods-Go Jek Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go Jek Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Go Jek Assignment/Pods-Go Jek Assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,9 +107,10 @@
 			isa = PBXGroup;
 			children = (
 				D61B386F22CDB566002531E8 /* AppDelegate.swift */,
+				D61B38AA22D227DA002531E8 /* Extensions */,
+				D61B388422CDD3F7002531E8 /* RequestManager */,
 				D61B388722CF0E25002531E8 /* Models */,
 				D61B38A522D0E4DB002531E8 /* Controllers */,
-				D61B388422CDD3F7002531E8 /* RequestManager */,
 				D61B388D22CF287F002531E8 /* View */,
 				D61B388A22CF2110002531E8 /* ViewModels */,
 				D61B387922CDB569002531E8 /* Assets.xcassets */,
@@ -178,6 +183,15 @@
 				D61B38A622D0E531002531E8 /* AddContactController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D61B38AA22D227DA002531E8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D61B38AB22D227FE002531E8 /* UIimageView.swift */,
+				D61B38AD22D22894002531E8 /* String+Validation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,8 +318,10 @@
 				D61B388622CDD411002531E8 /* RequestManager.swift in Sources */,
 				D61B38A722D0E531002531E8 /* AddContactController.swift in Sources */,
 				D61B389122CF28CA002531E8 /* ContactCell.swift in Sources */,
+				D61B38AC22D227FE002531E8 /* UIimageView.swift in Sources */,
 				D61B388922CF0E3C002531E8 /* Contacts.swift in Sources */,
 				D61B38A422D083EA002531E8 /* ContactDetail.swift in Sources */,
+				D61B38AE22D22894002531E8 /* String+Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
