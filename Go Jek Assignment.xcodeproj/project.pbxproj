@@ -27,7 +27,19 @@
 		D61B38A922D1BB5F002531E8 /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38A822D1BB5F002531E8 /* AddContact.swift */; };
 		D61B38AC22D227FE002531E8 /* UIimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38AB22D227FE002531E8 /* UIimageView.swift */; };
 		D61B38AE22D22894002531E8 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38AD22D22894002531E8 /* String+Validation.swift */; };
+		D61B38B922D31859002531E8 /* Go_Jek_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38B822D31859002531E8 /* Go_Jek_AssignmentTests.swift */; };
+		D61B38C122D31ABA002531E8 /* ContactAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61B38C022D31ABA002531E8 /* ContactAppTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D61B38BB22D31859002531E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D61B386422CDB566002531E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D61B386B22CDB566002531E8;
+			remoteInfo = "Go Jek Assignment";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		04986A096F3F22E7A41A9347 /* libPods-Go Jek Assignment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Go Jek Assignment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +65,10 @@
 		D61B38A822D1BB5F002531E8 /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
 		D61B38AB22D227FE002531E8 /* UIimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIimageView.swift; sourceTree = "<group>"; };
 		D61B38AD22D22894002531E8 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
+		D61B38B622D31858002531E8 /* Go Jek AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Go Jek AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D61B38B822D31859002531E8 /* Go_Jek_AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go_Jek_AssignmentTests.swift; sourceTree = "<group>"; };
+		D61B38BA22D31859002531E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D61B38C022D31ABA002531E8 /* ContactAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppTests.swift; sourceTree = "<group>"; };
 		DABE63D6C4E4AB33995E9BE2 /* Pods-Go Jek Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go Jek Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Go Jek Assignment/Pods-Go Jek Assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +78,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FBEEE5A18237ED9DB7C88CB /* libPods-Go Jek Assignment.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D61B38B322D31858002531E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				D61B386E22CDB566002531E8 /* Go Jek Assignment */,
+				D61B38B722D31859002531E8 /* Go Jek AssignmentTests */,
 				D61B386D22CDB566002531E8 /* Products */,
 				88D2F3E502C339512B3603E4 /* Pods */,
 				802FCA40561AB3EB9D89D90D /* Frameworks */,
@@ -99,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				D61B386C22CDB566002531E8 /* Go Jek Assignment.app */,
+				D61B38B622D31858002531E8 /* Go Jek AssignmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +219,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D61B38B722D31859002531E8 /* Go Jek AssignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				D61B38B822D31859002531E8 /* Go_Jek_AssignmentTests.swift */,
+				D61B38C022D31ABA002531E8 /* ContactAppTests.swift */,
+				D61B38BA22D31859002531E8 /* Info.plist */,
+			);
+			path = "Go Jek AssignmentTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +251,24 @@
 			productReference = D61B386C22CDB566002531E8 /* Go Jek Assignment.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D61B38B522D31858002531E8 /* Go Jek AssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D61B38BD22D31859002531E8 /* Build configuration list for PBXNativeTarget "Go Jek AssignmentTests" */;
+			buildPhases = (
+				D61B38B222D31858002531E8 /* Sources */,
+				D61B38B322D31858002531E8 /* Frameworks */,
+				D61B38B422D31858002531E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D61B38BC22D31859002531E8 /* PBXTargetDependency */,
+			);
+			name = "Go Jek AssignmentTests";
+			productName = "Go Jek AssignmentTests";
+			productReference = D61B38B622D31858002531E8 /* Go Jek AssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,6 +281,10 @@
 				TargetAttributes = {
 					D61B386B22CDB566002531E8 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					D61B38B522D31858002531E8 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = D61B386B22CDB566002531E8;
 					};
 				};
 			};
@@ -245,6 +302,7 @@
 			projectRoot = "";
 			targets = (
 				D61B386B22CDB566002531E8 /* Go Jek Assignment */,
+				D61B38B522D31858002531E8 /* Go Jek AssignmentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,6 +317,13 @@
 				D61B389722D04C66002531E8 /* ContactCell.xib in Resources */,
 				D61B387A22CDB569002531E8 /* Assets.xcassets in Resources */,
 				D61B387522CDB566002531E8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D61B38B422D31858002531E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +390,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D61B38B222D31858002531E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D61B38C122D31ABA002531E8 /* ContactAppTests.swift in Sources */,
+				D61B38B922D31859002531E8 /* Go_Jek_AssignmentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D61B38BC22D31859002531E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D61B386B22CDB566002531E8 /* Go Jek Assignment */;
+			targetProxy = D61B38BB22D31859002531E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D61B387322CDB566002531E8 /* Main.storyboard */ = {
@@ -472,7 +554,10 @@
 				DEVELOPMENT_TEAM = 9AH2BSZKXW;
 				INFOPLIST_FILE = "Go Jek Assignment/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanDemo.Go-Jek-Assignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -489,11 +574,54 @@
 				DEVELOPMENT_TEAM = 9AH2BSZKXW;
 				INFOPLIST_FILE = "Go Jek Assignment/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanDemo.Go-Jek-Assignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D61B38BE22D31859002531E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AH2BSZKXW;
+				INFOPLIST_FILE = "Go Jek AssignmentTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanDemo.Go-Jek-AssignmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Go Jek Assignment.app/Go Jek Assignment";
+			};
+			name = Debug;
+		};
+		D61B38BF22D31859002531E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AH2BSZKXW;
+				INFOPLIST_FILE = "Go Jek AssignmentTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanDemo.Go-Jek-AssignmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Go Jek Assignment.app/Go Jek Assignment";
 			};
 			name = Release;
 		};
@@ -514,6 +642,15 @@
 			buildConfigurations = (
 				D61B388222CDB569002531E8 /* Debug */,
 				D61B388322CDB569002531E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D61B38BD22D31859002531E8 /* Build configuration list for PBXNativeTarget "Go Jek AssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D61B38BE22D31859002531E8 /* Debug */,
+				D61B38BF22D31859002531E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

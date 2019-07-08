@@ -77,8 +77,6 @@ class RequestManager {
     func editContactWithDetail(contact:AddContact,contactId:Int, completion: @escaping (Result<ContactDetail>) -> ()){
         let urlstring : String = BASE_URL + "/contacts/\(contactId).json"
         let params : [String : Any]  = ["first_name":contact.firstName,"last_name":contact.lastName,"email":contact.email,"phone_number":contact.phone,"favorite":contact.isFavorite]
-        print(urlstring)
-        print(params)
         Alamofire.request(urlstring, method: .put, parameters:params, encoding:
             JSONEncoding.default, headers: headers).responseJSON { (response) in
             if let err = response.result.error {

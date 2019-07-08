@@ -23,15 +23,20 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
     var screen : ScreenType = ScreenType.Add
     var contactInfoName = ["FirstName","LastName","Mobile","Email"]
     var contactInfoValue = ["","","",""]
-    var contact :ContactDetail!{
-        didSet{
-            contactInfoValue = [contact.firstName,contact.lastName,contact.phoneNumber,contact.email]
-        }
-    }
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
     var phoneNumber: String = ""
+    var contact :ContactDetail!{
+        didSet{
+            contactInfoValue = [contact.firstName,contact.lastName,contact.phoneNumber,contact.email]
+            firstName = contact.firstName
+            lastName = contact.lastName
+            email = contact.email
+            phoneNumber = contact.phoneNumber
+        }
+    }
+    
     
     var isEmailValid : Bool = false
     var isPhoneValid : Bool = false
@@ -114,7 +119,7 @@ class AddContactController: UIViewController,UITableViewDelegate,UITableViewData
                 let contactToAdd = AddContact(firstName: firstName, lastName: lastName, email: email, phone: phoneNumber, isFavorite: false)
                 addContactWithDetail(addContact: contactToAdd)
             }else{
-                let contactToAdd = AddContact(firstName: firstName, lastName: lastName, email: email, phone: phoneNumber, isFavorite: false)
+                let contactToAdd = AddContact(firstName:firstName, lastName: lastName, email: email, phone: phoneNumber, isFavorite: false)
                 editContactWithDetail(addContact: contactToAdd)
             }
     }

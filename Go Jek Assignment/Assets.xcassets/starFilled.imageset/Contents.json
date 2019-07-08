@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "starFilled.png",
+      "filename" : "star.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "starFilled-1.png",
+      "filename" : "star-1.png",
       "scale" : "3x"
     }
   ],
